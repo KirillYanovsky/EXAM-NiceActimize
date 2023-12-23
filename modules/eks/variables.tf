@@ -10,9 +10,16 @@ variable "cluster_version" {
   default     = "1.28"
 }
 
-variable "vpc_id" {
-  description = "ID of the VPC to deploy the EKS cluster into"
-  type        = string
+variable "eks_workers" {
+  description = "List of managed node groups to create for the EKS"
+  type = map(object({
+    instance_types  = list(string)
+    min_size        = number
+    max_size        = number
+    desired_size    = number
+    max_unavailable = list(string)
+    }
+  ))
 }
 
 variable "subnet_ids" {
@@ -37,7 +44,7 @@ variable "cluster_addons" {
 }
 
 variable "tags" {
-  description = "Tags to apply to all resources"
+  description = "Tags to apply to the EKS"
   type        = map(string)
   default     = {}
 }

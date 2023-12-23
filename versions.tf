@@ -7,6 +7,16 @@ terraform {
       version = ">= 5.0"
     }
 
+    kubernetes = {
+      source  = "hashicorp/kubernetes"
+      version = "~>2.24.0"
+    }
+
+    helm = {
+      source  = "hashicorp/helm"
+      version = "~>2.12.1"
+    }
+
     archive = {
       source  = "hashicorp/archive"
       version = "2.4.0"
@@ -22,4 +32,19 @@ terraform {
 
 provider "aws" {
   region = var.region
+}
+
+provider "kubernetes" {
+  host                   = module.eks.hostname
+  cluster_ca_certificate = base64decode(module.eks.cluster_ca_certificate[0].data)
+  token                  = module.eks.token
+}
+
+provider "helm" {
+  debug = true
+  kubernetes {
+    host                   = module.eks.hostname
+    cluster_ca_certificate = base64decode(module.eks.cluster_ca_certificate[0].data)
+    token                  = module.eks.token
+  }
 }
