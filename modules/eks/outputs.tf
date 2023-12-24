@@ -1,19 +1,23 @@
-output "cluster_endpoint" {
-  description = "Endpoint for EKS control plane"
-  value       = module.eks.cluster_endpoint
+output "eks_name" {
+  description = "EKS Cluster Name"
+  value       = aws_eks_cluster.this.name
 }
 
-output "cluster_security_group_id" {
-  description = "Security group ids attached to the cluster control plane"
-  value       = module.eks.cluster_security_group_id
+data "aws_eks_cluster_auth" "this" {
+  name = aws_eks_cluster.this.name
 }
 
-# output "ssm" {
-#   value     = data.aws_ssm_parameter.eks_ami_release_version
-#   sensitive = true
-# }
+output "hostname" {
+  description = "Hostname of the EKS cluster"
+  value       = aws_eks_cluster.this.endpoint
+}
 
-output "cluster_name" {
-  description = "Kubernetes Cluster Name"
-  value       = module.eks.cluster_name
+output "cluster_ca_certificate" {
+  description = "Nested attribute containing certificate-authority-data for your cluster."
+  value       = aws_eks_cluster.this.certificate_authority
+}
+
+output "token" {
+  description = "The token to use to authenticate with the cluster."
+  value       = data.aws_eks_cluster_auth.this.token
 }

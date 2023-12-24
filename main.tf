@@ -1,7 +1,6 @@
 locals {
-  name = "Exam-Actimize"
   tags = {
-    Name      = local.name
+    Project   = var.project_name
     Terraform = "true"
     Owner     = "KirillYanovsky"
   }
@@ -11,23 +10,29 @@ locals {
 module "vpc" {
   source = "./modules/vpc"
 
-  vpc_name = var.vpc_name
-  eks_name = lower(var.eks_name)
-  tags     = local.tags
+  vpc_name        = var.vpc_name
+  eks_name        = lower(var.eks_name)
+  cidr_block      = var.cidr_block
+  vpc_subnets_map = var.vpc_subnets_map
+
+  tags = local.tags
 }
 
 # Create EKS Cluster
 module "eks" {
   source = "./modules/eks"
 
-  eks_name   = var.eks_name
-  vpc_id     = module.vpc.vpc_id
-  subnet_ids = module.vpc.private_subnets
-  tags       = local.tags
+  eks_name    = var.eks_name
+  subnet_ids  = module.vpc.public_subnet_ids
+  eks_workers = var.eks_workers
+
+  tags = local.tags
 }
 
 module "helm" {
   source = "./modules/helm"
 
   cluster_name = var.eks_name
+
+  depends_on = [module.eks]
 }

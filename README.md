@@ -28,7 +28,7 @@ If you want to run the checks manually without committing, use the command
 pre-commit run -a
 ```
 
-## Authenticate to AWS and Azure
+## Authenticate to AWS
 
 ```shell
 touch $(pwd)/kubeconfig.yaml && export AWS_PROFILE=default && export KUBECONFIG=$(pwd)/kubeconfig.yaml
@@ -39,17 +39,4 @@ aws eks update-kubeconfig --name actimize_eks
 
 ```shell
 terraform apply
-#terragrunt run-all apply --terragrunt-working-dir environments
-```
-
-## Deploy single resource
-
-```shell
-#terragrunt apply --terragrunt-working-dir environments/<env>/<resource>
-```
-
-## Deploy application only
-
-```shell
-#terragrunt apply --terragrunt-working-dir environments/aws/app
 ```

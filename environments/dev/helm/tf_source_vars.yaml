@@ -1,7 +1,0 @@
----
-tf_source: ../../../modules//helm
-
-inputs:
-  app_environment: "Please change this variable here - https://github.com/langburd/p-shmonim-ve-ehad-example-app/blob/master/environments/avilangburd/helm/tf_source_vars.yaml"
-  app_name: exam
-  hosted_zone_name: p81.langburd.net
