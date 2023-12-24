@@ -16,7 +16,7 @@ variable "vpc_name" {
 }
 
 variable "eks_name" {
-  description = "Mane of EKS"
+  description = "Name of EKS"
   type        = string
   default     = "actimize_eks"
 }

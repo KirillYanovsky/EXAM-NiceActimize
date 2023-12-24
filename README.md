@@ -39,17 +39,4 @@ aws eks update-kubeconfig --name actimize_eks
 
 ```shell
 terraform apply
-#terragrunt run-all apply --terragrunt-working-dir environments
-```
-
-## Deploy single resource
-
-```shell
-#terragrunt apply --terragrunt-working-dir environments/<env>/<resource>
-```
-
-## Deploy application only
-
-```shell
-#terragrunt apply --terragrunt-working-dir environments/aws/app
 ```
