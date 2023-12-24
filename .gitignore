@@ -38,3 +38,5 @@ override.tf.json
 temp
 
 *.mp3
+
+kubeconfig.yaml

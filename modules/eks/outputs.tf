@@ -3,11 +3,6 @@ output "eks_name" {
   value       = aws_eks_cluster.this.name
 }
 
-# output "cluster_endpoint" {
-#   description = "Endpoint for EKS control plane"
-#   value       = aws_eks_cluster.this.endpoint
-# }
-
 data "aws_eks_cluster_auth" "this" {
   name = aws_eks_cluster.this.name
 }
