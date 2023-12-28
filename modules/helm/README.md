@@ -29,7 +29,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | Name of the EKS cluster to create | `string` | n/a | yes |
+| <a name="input_eks_name"></a> [eks\_name](#input\_eks\_name) | Name of the EKS cluster to create | `string` | n/a | yes |
 
 ## Outputs
 

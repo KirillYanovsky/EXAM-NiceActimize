@@ -1,10 +1,10 @@
 terraform {
-  required_version = ">= 1.0"
+  required_version = ">= 1.5"
 
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = ">= 5.0"
+      version = ">= 5.25.0"
     }
 
     kubernetes = {
@@ -37,7 +37,7 @@ provider "aws" {
 provider "kubernetes" {
   host                   = module.eks.hostname
   cluster_ca_certificate = base64decode(module.eks.cluster_ca_certificate[0].data)
-  token                  = module.eks.token
+  token                  = sensitive(module.eks.token)
 }
 
 provider "helm" {
@@ -45,6 +45,6 @@ provider "helm" {
   kubernetes {
     host                   = module.eks.hostname
     cluster_ca_certificate = base64decode(module.eks.cluster_ca_certificate[0].data)
-    token                  = module.eks.token
+    token                  = sensitive(module.eks.token)
   }
 }

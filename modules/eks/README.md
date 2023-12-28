@@ -46,7 +46,7 @@ No modules.
 | <a name="input_cluster_addons"></a> [cluster\_addons](#input\_cluster\_addons) | List of addons to enable for the EKS cluster | `map(map(bool))` | <pre>{<br>  "aws-ebs-csi-driver": {<br>    "most_recent": true<br>  },<br>  "coredns": {<br>    "most_recent": true<br>  },<br>  "vpc-cni": {<br>    "most_recent": true<br>  }<br>}</pre> | no |
 | <a name="input_cluster_version"></a> [cluster\_version](#input\_cluster\_version) | Kubernetes version to use for the EKS cluster | `string` | `"1.28"` | no |
 | <a name="input_eks_name"></a> [eks\_name](#input\_eks\_name) | Name of EKS | `string` | `"actimize_eks"` | no |
-| <a name="input_eks_workers"></a> [eks\_workers](#input\_eks\_workers) | List of managed node groups to create for the EKS | <pre>map(object({<br>    instance_types  = list(string)<br>    min_size        = number<br>    max_size        = number<br>    desired_size    = number<br>    max_unavailable = list(string)<br>    }<br>  ))</pre> | n/a | yes |
+| <a name="input_eks_workers"></a> [eks\_workers](#input\_eks\_workers) | List of managed node groups to create for the EKS | <pre>map(object({<br>    instance_types  = list(string)<br>    min_size        = number<br>    max_size        = number<br>    desired_size    = number<br>    max_unavailable = number<br>    }<br>  ))</pre> | n/a | yes |
 | <a name="input_subnet_ids"></a> [subnet\_ids](#input\_subnet\_ids) | IDs of the subnets to deploy the EKS cluster into | `list(string)` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | Tags to apply to the EKS | `map(string)` | `{}` | no |
 

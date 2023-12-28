@@ -28,7 +28,7 @@ variable "eks_workers" {
     min_size        = number
     max_size        = number
     desired_size    = number
-    max_unavailable = list(string)
+    max_unavailable = number
     }
   ))
   default = {
@@ -37,7 +37,7 @@ variable "eks_workers" {
       min_size        = 1
       max_size        = 5
       desired_size    = 1
-      max_unavailable = ["1"]
+      max_unavailable = 1
     }
   }
 }

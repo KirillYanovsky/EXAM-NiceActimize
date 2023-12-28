@@ -20,4 +20,5 @@ output "cluster_ca_certificate" {
 output "token" {
   description = "The token to use to authenticate with the cluster."
   value       = data.aws_eks_cluster_auth.this.token
+  sensitive   = true
 }

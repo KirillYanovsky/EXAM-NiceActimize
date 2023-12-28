@@ -32,7 +32,7 @@ module "eks" {
 module "helm" {
   source = "./modules/helm"
 
-  cluster_name = var.eks_name
+  eks_name = var.eks_name
 
   depends_on = [module.eks]
 }

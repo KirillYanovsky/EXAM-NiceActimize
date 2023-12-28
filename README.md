@@ -40,3 +40,5 @@ aws eks update-kubeconfig --name actimize_eks
 ```shell
 terraform apply
 ```
+
+#terragrunt run-all apply --terragrunt-working-dir environments

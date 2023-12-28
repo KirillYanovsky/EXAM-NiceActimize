@@ -27,7 +27,6 @@ resource "helm_release" "metrics-server" {
   repository    = "https://kubernetes-sigs.github.io/metrics-server"
   version       = "3.11.0"
   recreate_pods = true
-
 }
 
 resource "helm_release" "cluster_autoscaler" {
@@ -40,6 +39,6 @@ resource "helm_release" "cluster_autoscaler" {
 
   set {
     name  = "autoDiscovery.clusterName"
-    value = var.cluster_name
+    value = var.eks_name
   }
 }
