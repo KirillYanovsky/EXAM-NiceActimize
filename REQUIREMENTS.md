@@ -24,7 +24,4 @@ Solution can be elaborated with actual code or with pseudocode, which will follo
 
 Questions can be asked by sending an email to (all of them in cc, English language):
 
-- <merav.fester@niceactimize.com>
-- <nasser.obaid@niceactimize.com>
-
 Final solution should be sent to the same emails with a zip file in attachment.

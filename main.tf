@@ -34,5 +34,5 @@ module "helm" {
 
   eks_name = var.eks_name
 
-  depends_on = [module.eks]
+  #depends_on = [module.eks]
 }
